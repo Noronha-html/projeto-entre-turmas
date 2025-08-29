@@ -1,0 +1,78 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    background: #f8f9fa;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  header {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 3rem;
+  }
+  header p {
+    font-size: 20;
+  }
+  nav {
+    background: #2a2a2a;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  nav a:hover {
+    background: #444;
+  }
+  section {
+    padding: 30px 20px;
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2a5298;
+    border-bottom: 3px solid #2a5298;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .produto {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  .produto:hover {
+    transform: translateY(-5px);
+  }
+  .produto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  .produto h3 {
+    margin: 10px;
+    font-size: 1rem;
+  }
+  .produto p {
+    margin: 0 10px 10px;
+    color: #2a5298;
+    font-weight: bold;
+  }
