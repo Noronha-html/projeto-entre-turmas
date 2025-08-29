@@ -1,8 +1,6 @@
 <?php
 include_once 'connection.php';
 
-$prouctID;
-
 $sql = 'SELECT Nome, Descricao, Foto FROM produtos as p
         INNER JOIN categorias as c ON p.CategoriaID = c.CategoriaID';
 
@@ -38,7 +36,7 @@ $result = mysqli_query($conn, $sql);
       <div class="grid">
         <?php
         while($row = mysqli_fetch_assoc($result)) {
-            echo '<a href="id='$prouctID'" class="produto"><img src="https://via.placeholder.com/200x150?text=Camisa"><h3>Camisa</h3><p>R$ 59,90</p></a>'
+            echo '<a href="id='.$row['ProdutoID'].'" class="produto"><img src="'.$row['Foto'].'"><h3>'.$row['Nome'].'</h3><p>R$ 59,90</p></a>';
         }
         ?>
         <a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Camisa"><h3>Camisa</h3><p>R$ 59,90</p></a>
