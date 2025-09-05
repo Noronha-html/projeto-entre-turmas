@@ -1,10 +1,17 @@
 <?php
 include_once 'connection.php';
 
-$sql = 'SELECT Nome, Descricao, Foto FROM produtos as p
-        INNER JOIN categorias as c ON p.CategoriaID = c.CategoriaID';
-
+$sql = 'SELECT Nome, Descricao, Preco, Foto FROM produtos as p
+          INNER JOIN categorias as c ON p.CategoriaID = c.CategoriaID';
 $result = mysqli_query($conn, $sql);
+
+function instantiateProducts($catID) {
+  while($row = mysqli_fetch_assoc($result)) {
+    if($row['CategoriaID'] == $catID) {
+      echo '<a href="id='.$row['ProdutoID'].'" class="produto"><img src="'.$row['Foto'].'"><h3>'.$row['Nome'].'</h3><p>'.$row['Preco'].'</p></a>';
+    }
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,15 +42,13 @@ $result = mysqli_query($conn, $sql);
       <h2>Pet</h2>
       <div class="grid">
         <?php
-        while($row = mysqli_fetch_assoc($result)) {
-            echo '<a href="id='.$row['ProdutoID'].'" class="produto"><img src="'.$row['Foto'].'"><h3>'.$row['Nome'].'</h3><p>R$ 59,90</p></a>';
-        }
+          instantiateProducts(9);
         ?>
-        <a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Camisa"><h3>Camisa</h3><p>R$ 59,90</p></a>
+        <!--a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Camisa"><h3>Camisa</h3><p>R$ 59,90</p></a>
         <a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Calça"><h3>Calça Jeans</h3><p>R$ 89,90</p></a>
         <a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Jaqueta"><h3>Jaqueta</h3><p>R$ 199,90</p></a>
         <a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Vestido"><h3>Vestido</h3><p>R$ 149,90</p></a>
-        <a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Boné"><h3>Boné</h3><p>R$ 39,90</p></a>
+        <a href="#" class="produto"><img src="https://via.placeholder.com/200x150?text=Boné"><h3>Boné</h3><p>R$ 39,90</p></a-->
       </div>
     </section>
     
